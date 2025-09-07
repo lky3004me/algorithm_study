@@ -1,0 +1,18 @@
+import sys
+input = sys.stdin.readline
+
+m, n = map(int, input().split())
+
+is_prime = [True] * (n + 1)
+is_prime[0] = is_prime[1] = False  # 0, 1은 소수 아님
+
+# 에라토스테네스의 체
+for i in range(2, int(n ** 0.5) + 1):
+    if is_prime[i]:
+        for j in range(i * i, n + 1, i):
+            is_prime[j] = False
+
+# m부터 n까지 출력
+for i in range(m, n + 1):
+    if is_prime[i]:
+        print(i)
