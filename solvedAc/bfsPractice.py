@@ -596,28 +596,89 @@
 #
 # sx, sy = map(int, input().split())
 # bfs(sx, sy)
-import sys
-sys.setrecursionlimit(10**6)
+# import sys
+# sys.setrecursionlimit(10**6)
+#
+# n,m = map(int, input().split())
+#
+# board = [list(map(int, input().split())) for _ in range(n)]
+#
+# visited = [[False for _ in range(m)] for _ in range(n)]
+#
+# dx = [-1,1,0,0]
+# dy = [0,0,-1,1]
+#
+# def dfs(x, y):
+#     visited[x][y] = True
+#
+#     for i in range(4):
+#         nx = x + dx[i]
+#         ny = y + dy[i]
+#
+#         if 0 <= nx < n and 0<= ny <m:
+#             if not visited[nx][ny] and board[nx][ny] == 1:
+#                 dfs(nx, ny)
+#
+# sx, sy = map(int, input().split())
+# dfs(sx, sy)
+# from collections import deque
+#
+# n,m = map(int, input().split())
+# board = [list(map(int, input().split())) for _ in range(n)]
+#
+# visited = [[False for _ in range(m)] for _ in range(n)]
+#
+# dx = [-1,1, 0, 0]
+# dy = [0, 0, -1, 1]
+#
+# def bfs(startX, startY):
+#     queue = deque()
+#     visited[startY][startX] = True
+#     queue.append((startX, startY))
+#
+#     while queue:
+#         x, y = queue.popleft()
+#
+#         for i in range(4):
+#             nx = x + dx[i]
+#             ny = y + dy[i]
+#
+#             if 0 <= nx < m and 0 <= ny <n:
+#                 if not visited[ny][nx]:
+#                     queue.append((nx,ny))
+#                     visited[ny][nx] = True
+# sx, sy = map(int, input().split())
+# bfs(sx, sy)
+# n, m = map(int, input().split())
+# board = [list(map, input().split()) for _ in range(n)]
+# visited = [[False for _ in range(m)] for _ in range(n)]
+#
+# dx = [-1,1,0,0]
+# dy = [0,0, -1, 1]
+#
+# def dfs(x, y):
+#     visited[y][x] = True
+#
+#     for i in range(4):
+#         nx = x +dx[i]
+#         ny = y + dy[i]
+#
+#         if 0<= nx < m and 0<=ny <n:
+#             if not visited[ny][nx]:
+#                 dfs(nx, ny)
+#
+# sx, sy = map(int, input().split())
+# dfs(sx, sy)
 
-n,m = map(int, input().split())
+def bubble(arr):
+    n = len(arr)
 
-board = [list(map(int, input().split())) for _ in range(n)]
+    for i in range(n-1):
+        for j in range(n-1-i):
+            if arr[j + 1] < arr[j]:
+                arr[j+1], arr[j] = arr[j], arr[j+1]
 
-visited = [[False for _ in range(m)] for _ in range(n)]
+    return arr
 
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
-
-def dfs(x, y):
-    visited[x][y] = True
-
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
-
-        if 0 <= nx < n and 0<= ny <m:
-            if not visited[nx][ny] and board[nx][ny] == 1:
-                dfs(nx, ny)
-
-sx, sy = map(int, input().split())
-dfs(sx, sy)
+data = [5,3,87,4,2]
+print(bubble(data))
